@@ -14,6 +14,7 @@ fn main() {
     let connection = establish_connection();
     let results = users
         .limit(5)
+        .order(id.desc())
         .load::<User>(&connection)
         .expect("Error loading users");
 
